@@ -1,0 +1,19 @@
+dlai@dlai-VirtualBox:~/chef/dlai-aws$ ./bootstrap-windows.rb 
+Instance ID: i-9f365b93
+Flavor: t2.micro
+Image: ami-29d18719
+Region: us-west-2
+Availability Zone: us-west-2b
+Security Group Ids: sg-5fa5ec3a
+Tags: Name: webserver-01.example.com
+SSH Key: dlai_red5
+
+Waiting for EC2 to create the instance.....................
+Subnet ID: subnet-ddf728aa
+Tenancy: default
+Private IP Address: 10.0.2.222
+
+ERROR: TypeError: no implicit conversion of nil into String
+Waiting for winrm access to become available
+ERROR: Unable to get new instance's IP address
+dlai@dlai-VirtualBox:~/chef/dlai-aws$ 

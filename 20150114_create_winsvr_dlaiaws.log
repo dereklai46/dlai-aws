@@ -1,0 +1,21 @@
+Wed Jan 14 13:07:28 PST 2015
+Instance ID: i-2d046921
+Flavor: t2.micro
+Image: ami-29d18719
+Region: us-west-2
+Availability Zone: us-west-2b
+Security Group Ids: sg-e0367a85
+Tags: Group: FirefallAPI, Name: winsvr-apache2-01
+SSH Key: dlai_red5
+
+Waiting for EC2 to create the instance.................
+Subnet ID: subnet-ddf728aa
+Tenancy: default
+Private IP Address: 10.0.2.249
+
+Waiting for winrm access to become availableERROR: TypeError: no implicit conversion of nil into String
+
+real	0m28.199s
+user	0m5.900s
+sys	0m0.942s
+Wed Jan 14 13:07:56 PST 2015

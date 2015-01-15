@@ -1,0 +1,30 @@
+<powershell>
+
+#####
+#DON'T FORGET TO SET/CHANGE THE USERNAME/PASSWORD BELOW!!!!!!!!!!
+#####
+
+$user="ELIDED"
+$password="ELIDED"
+
+#Disable password complexity requirements
+"[System Access]" | out-file c:\delete.cfg
+"PasswordComplexity = 0" | out-file c:\delete.cfg -append
+"[Version]" | out-file c:\delete.cfg -append
+'signature="$CHICAGO$"' | out-file c:\delete.cfg -append
+secedit /configure /db C:\Windows\security\new.sdb /cfg c:\delete.cfg /areas SECURITYPOLICY
+
+del c:\delete.cfg
+
+# Create a user with her password, add to Admin group
+net user /add $user $password;
+net localgroup Administrators /add $user;
+
+winrm quickconfig -q
+winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
+winrm set winrm/config '@{MaxTimeoutms="1800000"}'
+winrm set winrm/config/service '@{AllowUnencrypted="true"}'
+winrm set winrm/config/service/auth '@{Basic="true"}'
+
+netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
+</powershell>
